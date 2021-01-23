@@ -1,5 +1,6 @@
 import { runCommand } from '@/renderer'
 import React, { FunctionComponent } from 'react'
+
 import './home.scss'
 
 export const HomeComponent: FunctionComponent<any> = () => {
