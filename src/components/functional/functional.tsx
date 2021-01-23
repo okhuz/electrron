@@ -28,7 +28,7 @@ export const FunctionalComponent: FunctionComponent<CounterProps> = (props: Coun
     
     return (
         <div className="testComponent">
-            <h1>I'm React running in Electron App!! {value.counter}</h1>
+            <h1>I'm a Functional Component. My counter is {value.counter}</h1>
             <h2>{ osName() }</h2>
             <button onClick={(e) => {handleClick(e)}}>asdasd</button>
         </div>

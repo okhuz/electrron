@@ -1,5 +1,5 @@
 import React, { Component, MouseEvent } from 'react';
-import './test.scss';
+import './class.scss';
 import osName from 'os-name'
 
 type CounterState = {
@@ -10,7 +10,7 @@ type CounterProps = {
     increment: number
 }
 
-export default class TestComponent extends Component<CounterProps, CounterState> {
+export default class ClassComponent extends Component<CounterProps, CounterState> {
 
     constructor(props: any) {
         super(props);
@@ -29,7 +29,7 @@ export default class TestComponent extends Component<CounterProps, CounterState>
     render() {
         return (
             <div className="testComponent">
-                <h1>I'm React running in Electron App!! {this.state.counter}</h1>
+                <h1>I'm a Class Component. My counter is: {this.state.counter}</h1>
                 <h2>{ osName() }</h2>
                 <button onClick={(e) => {this.handleClick(e, 10)}}>asdasd</button>
             </div>

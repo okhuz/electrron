@@ -1,5 +1,5 @@
 import { FunctionalComponent } from '@/components/functional/functional';
-import TestComponent from '@/components/classco/test';
+import ClassComponent from '@/components/class/class';
 import React from 'react';
 import './app.scss';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -16,10 +16,10 @@ const App = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/classComponent">Class Component</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/functionalComponent">Functional Component</Link>
             </li>
           </ul>
         </nav>
@@ -27,9 +27,9 @@ const App = () => {
 
       <Switch>
         <Route path="/about">
-          <TestComponent increment={15} />
+          <ClassComponent increment={15} />
         </Route>
-        <Route path="/users">
+        <Route path="/functionalComponent">
           <FunctionalComponent increment={3} />
         </Route>
         <Route path="/">
