@@ -1,7 +1,11 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
+import fs from 'fs';
+import { v4 as uuidv4} from 'uuid';
 
+
+let mainWindow: BrowserWindow;
 const createWindow = (): void => {
-  let win = new BrowserWindow({
+  mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
@@ -9,9 +13,23 @@ const createWindow = (): void => {
       contextIsolation: false
     }
   });
-  win.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
-  win.loadFile('index.html');
+  mainWindow.loadFile('index.html');
+}
+
+ipcMain.on('runCommand', async (event, arg) => {
+  event.returnValue = await runCommand(arg);
+});
+
+const runCommand = (arg: any) => {
+  console.log(arg);
+  mainWindow.webContents.capturePage().then(image => {
+    let imageName = `test${uuidv4()}.png`;
+    fs.writeFile(imageName, image.toPNG(), (err) => {
+      if (err) throw err
+    })
+  })
 }
 
 app.on('ready', createWindow);
