@@ -26,7 +26,7 @@ const App = () => {
       </div>
 
       <Switch>
-        <Route path="/about">
+        <Route path="/classComponent">
           <ClassComponent increment={15} />
         </Route>
         <Route path="/functionalComponent">
